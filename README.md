@@ -2,13 +2,16 @@
 
 ### Description
 
-This is a collection of tools scripted in Python for network/system automation and troubleshooting. These are intended for to speed up automation (such as configure multiple network/system devices), automate repetitive task and/or to speed up network troubleshooting processes.  Ideally for those who works with Cisco/Juniper networks, *Nix systems, datacenter techs, IT, etc.
+This is a collection of tools coded in Python for network/system automation and troubleshooting. These are intended for to speed up automation (such as configure multiple network/system devices), automate repetitive task and/or to speed up network troubleshooting processes.  Ideally for those who works with Cisco/Juniper networks, *Nix systems, datacenter techs, IT, etc.
 
 ## Tools
 
-**dnsResolver_ns.py**
+**dnsResolver_a.py** - to resolve domain names to IP
+**dnsResolver_ns.py** - to resolve the name server (NS) record of the domain names
+**dnsResolver_mx.py** - to resolve the mail exchange (MX) record of the domain names
+**dnsResolver_soa.py** - to resolve the Start of Authority (SOA) of the domain names
 
-This script will read the "domains.txt" file to perform a DNS lookup in order to resolve the Name Server record for each domain listed in "domains.txt" file.
+The scripts will read the "domains.txt" file to perform a DNS lookup in order to resolve the DNS records for each domain listed in "domains.txt" file.
 
 The **"domains.txt"** is a text file which must exist in the same directory where the script will be executed and the file must contain a domain or a list of domains to be read and processed by this script (one domain per line).
 
@@ -29,9 +32,12 @@ The **"domains.txt"** is a text file which must exist in the same directory wher
 ### To Run The Program
 
 To run the program execute:
+`python3 dnsResolver_a.py`
 `python3 dnsResolver_ns.py`
+`python3 dnsResolver_soa.py`
+`python3 dnsResolver_mx.py`
 
-The **dnsResolver_ns.py** programm will look for the **domains.txt** file and will execute a DNS querie to resolve the Name Server per each domain listed in the "domains.txt" file.
+The executed script will look for the **domains.txt** file which will execute a DNS querie to resolve the DNS record per each domain listed in the "domains.txt" file.
 
 ### Author
 
