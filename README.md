@@ -32,6 +32,7 @@ The **"domains.txt"** is a text file which must exist in the same directory wher
 ### To Run The Program
 
 To run the program execute:
+
 `python3 dnsResolver_a.py`
 `python3 dnsResolver_ns.py`
 `python3 dnsResolver_soa.py`
