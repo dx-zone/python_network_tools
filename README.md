@@ -35,4 +35,4 @@ The **dnsResolver_ns.py** programm will look for the **domains.txt** file and wi
 
 ### Author
 
-* Daniel Cruz - [dx-zone](https://github.com/dx-zone)
+* Daniel Cruz - [dx-zone](https://github.com/dx-zone)# python_network_tools
