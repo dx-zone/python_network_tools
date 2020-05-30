@@ -4,7 +4,7 @@
 # in order to resolve the Name Server record for each domain listed
 # in "domains.txt" file
 # The "domains.txt" file must exist and must contain a domain or a list
-# of domains to be read and processed by this script (one domain per line). 
+# of domains to be read and processed by this script (one domain per line).
 #
 # Requirements: dnspython module
 #
@@ -19,8 +19,8 @@
 try:
     import dns.resolver
 except ModuleNotFoundError as err:
-    print (f"A missing module is required: {err} was found.\n")
-    input ("""Press ENTER to install the missing module.
+    print(f"A missing module is required: {err} was found.\n")
+    input("""Press ENTER to install the missing module.
 Otherwise press CTRL+C to end this program.""")
     import os
     os.system('pip install dnspython')
@@ -53,8 +53,7 @@ for domain in domains:
             print(f"Domain: {domain} | Name Server: {rdata}")
     except dns.resolver.NXDOMAIN as err:
         pass
-        print(f"Remove this domain from the list: {err}")
-    
+        print(f"Remove this domain from the list: {err}")   
     except dns.exception.Timeout as err:
         print(f"DNS request timed out for this domain: {err}")
     except dns.resolver.NoAnswer as err:
