@@ -52,7 +52,6 @@ for domain in domains:
         for rdata in result:
             print(f"Domain: {domain} | Name Server: {rdata}")
     except dns.resolver.NXDOMAIN as err:
-        pass
         print(f"Remove this domain from the list: {err}")
     except dns.exception.Timeout as err:
         print(f"DNS request timed out for this domain: {err}")
