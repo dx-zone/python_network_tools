@@ -17,25 +17,22 @@
 # if the module is not present, then prompt the user and install it
 # automatically (the scipt will do a "pip install" for the user)
 try:
-	import dns.resolver
+    import dns.resolver
 except ModuleNotFoundError as err:
-	print (f"A missing module is required: {err} was found.\n")
-	input ("""Press ENTER to install the missing module.
+    print (f"A missing module is required: {err} was found.\n")
+    input ("""Press ENTER to install the missing module.
 Otherwise press CTRL+C to end this program.""")
-	import os
-	os.system('pip install dnspython')
-	import dns.resolver
-
-# 
-
+    import os
+    os.system('pip install dnspython')
+    import dns.resolver
 
 # look for "domain.txt" file,read each line and store it in a domains list,
 # prompt the user if file is not found
 try:
-	with open("domains.txt", "r") as file:
-		domains = file.read().splitlines()
+    with open("domains.txt", "r") as file:
+        domains = file.read().splitlines()
 except FileNotFoundError:
-	print('File not found. Check if the file "domains.txt" exist.')
+    print('File not found. Check if the file "domains.txt" exist.')
 
 # domains list variable for debugging purposes (disabled)
 #domains = ['example.com', 'fakedomain.com']
@@ -50,19 +47,19 @@ resolver.lifetime = 30
 # iteration to lookup for each domain listed in the domains list variable,
 # perform a DNS lookup, and catch any error (if any) is found.
 for domain in domains:
-	try:
-		result = resolver.query(domain, 'A')
-		for rdata in result:
-			print(f"Domain: {domain} | Name Server: {rdata}")
-	except dns.resolver.NXDOMAIN as err:
-		pass
-		print(f"Remove this domain from the list: {err}")
-	
-	except dns.exception.Timeout as err:
-		print(f"DNS request timed out for this domain: {err}")
-	except dns.resolver.NoAnswer as err:
-		print(f"DNS did not answer for this domain: {err}")
-	except dns.resolver.NoNameservers as err:
-		print(f"Remove this domain from the list: {err}")
-	except KeyError as err:
-		print(f"Another exception was catched: {err}")
+    try:
+        result = resolver.query(domain, 'A')
+        for rdata in result:
+            print(f"Domain: {domain} | Name Server: {rdata}")
+    except dns.resolver.NXDOMAIN as err:
+        pass
+        print(f"Remove this domain from the list: {err}")
+    
+    except dns.exception.Timeout as err:
+        print(f"DNS request timed out for this domain: {err}")
+    except dns.resolver.NoAnswer as err:
+        print(f"DNS did not answer for this domain: {err}")
+    except dns.resolver.NoNameservers as err:
+        print(f"Remove this domain from the list: {err}")
+    except KeyError as err:
+        print(f"Another exception was catched: {err}")
